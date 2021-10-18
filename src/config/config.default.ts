@@ -1,12 +1,14 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
 
 export type DefaultConfig = PowerPartial<EggAppConfig>;
+const env = process.env.NODE_ENV;
+
 export const sequelize = {
   options: {
     database: 'test',
     username: 'root',
     password: 'abu0418',
-    host: '127.0.0.1', // 此处支持idb上面vipserver key的那种方式，也支持aliyun的地址。
+    host: env === 'local' ? 'localhost' : '47.96.16.56',
     port: 3306,
     encrypt: false,
     dialect: 'mysql',

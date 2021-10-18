@@ -40,7 +40,7 @@
     "lint": "mwts check",
     "lint:fix": "mwts fix",
     "ci": "npm run cov",
-    "build": "midway-bin build -c",
+    "build": "cross-env NODE_ENV=prod midway-bin build -c",
     "check": "luckyeye"
   },
   "midway-bin-clean": [
