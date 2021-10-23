@@ -17,6 +17,11 @@ export const sequelize = {
   },
   sync: false, // 本地的时候，可以通过sync: true直接createTable
 };
+// src/config/config.default.ts
+export const cors = {
+  origin: '*',
+  allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+};
 export default (appInfo: EggAppInfo) => {
   const config = {} as DefaultConfig;
 
@@ -32,9 +37,9 @@ export default (appInfo: EggAppInfo) => {
     replaceEggLogger: true,
   };
 
-  // config.security = {
-  //   csrf: false,
-  // };
+  config.security = {
+    csrf: false,
+  };
 
   return config;
 };

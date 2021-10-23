@@ -50,7 +50,6 @@ export class APIController {
   @Post('/add_task')
   async addTask(
     @Body() title: string,
-    @Body() account: string,
     @Body() desc: string,
     @Body() token: string
   ) {
