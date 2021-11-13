@@ -60,4 +60,9 @@ export class APIController {
     });
     return { success: true, message: 'OK', data: user };
   }
+  @Post('/delete_task')
+  async deleteTask(@Body() id: number) {
+    const num = await this.taskService.deleteTask(id);
+    return { success: true, message: 'OK', data: num };
+  }
 }

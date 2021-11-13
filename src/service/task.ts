@@ -11,4 +11,11 @@ export class TaskService {
   async addTask(option: ITask): Promise<ITask> {
     return await Task.create(option);
   }
+  async deleteTask(id: number): Promise<number> {
+    return await Task.destroy({
+      where: {
+        id: id,
+      },
+    });
+  }
 }
