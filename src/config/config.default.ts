@@ -1,14 +1,15 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
 
 export type DefaultConfig = PowerPartial<EggAppConfig>;
-const env = process.env.NODE_ENV;
+// const env = process.env.NODE_ENV;
 
 export const sequelize = {
   options: {
     database: 'test',
     username: 'root',
     password: 'abu0418',
-    host: env === 'local' ? 'localhost' : '47.96.16.56',
+    // host: env === 'local' ? 'localhost' : '47.96.16.56',
+    host: '47.96.16.56',
     port: 3306,
     encrypt: false,
     dialect: 'mysql',
@@ -29,7 +30,7 @@ export default (appInfo: EggAppInfo) => {
   config.keys = appInfo.name + '_1634453204972_6249';
 
   // add your config here
-  config.middleware = [];
+  config.middleware = ['reportMiddleware'];
 
   config.midwayFeature = {
     // true 代表使用 midway logger
